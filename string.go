@@ -4,8 +4,6 @@ import (
 	"strings"
 )
 
-type String struct {}
-
 /**
  * Convert kebab-case into CamelCase
  */
