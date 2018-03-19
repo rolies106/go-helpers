@@ -9,7 +9,7 @@ type String struct {}
 /**
  * Convert kebab-case into CamelCase
  */
-func (this *String) kebabToCamelCase(kebab string) (camelCase string) {
+func (this *String) KebabToCamelCase(kebab string) (camelCase string) {
 	isToUpper := true
 	for _, runeValue := range kebab {
 		if isToUpper {
