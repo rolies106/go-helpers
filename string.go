@@ -1,7 +1,6 @@
 package gohelpers
 
 import (
-	"fmt"
 	"strings"
 )
 
