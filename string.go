@@ -11,7 +11,7 @@ type String struct {}
 /**
  * Convert kebab-case into CamelCase
  */
-func (this *String) KebabToCamelCase(kebab string) (camelCase string) {
+func KebabToCamelCase(kebab string) (camelCase string) {
 
 	isToUpper := true
 	for _, runeValue := range kebab {
@@ -32,9 +32,9 @@ func (this *String) KebabToCamelCase(kebab string) (camelCase string) {
 /**
  * Extract integer from string
  */
-func (this *String) ExtractIntFromString(s string) (result int) {
+func ExtractIntFromString(s string) (result int) {
 	
-	resultString := this.ExtractNumberFromString(s)
+	resultString := ExtractNumberFromString(s)
 
 	if result, err := strconv.Atoi(resultString); err == nil {
 		return result
@@ -45,7 +45,7 @@ func (this *String) ExtractIntFromString(s string) (result int) {
 	return 
 }
 
-func (this *String) ExtractNumberFromString(s string) (result string) {
+func ExtractNumberFromString(s string) (result string) {
 
 	re := regexp.MustCompile("[0-9]+")
 	array := re.FindAllString(s, -1)
