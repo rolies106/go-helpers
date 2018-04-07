@@ -34,11 +34,15 @@ func (this *String) KebabToCamelCase(kebab string) (camelCase string) {
  */
 func (this *String) ExtractIntFromString(s string) (result int) {
 	
-	result = this.ExtractNumberFromString(s)
+	resultString := this.ExtractNumberFromString(s)
 
-	if i, err := strconv.Atoi(result); err == nil {
+	if i, err := strconv.Atoi(resultString); err == nil {
 		return result
 	}
+
+	result = 0
+
+	return 
 }
 
 func (this *String) ExtractNumberFromString(s string) (result string) {
