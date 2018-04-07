@@ -36,7 +36,7 @@ func (this *String) ExtractIntFromString(s string) (result int) {
 	
 	resultString := this.ExtractNumberFromString(s)
 
-	if i, err := strconv.Atoi(resultString); err == nil {
+	if result, err := strconv.Atoi(resultString); err == nil {
 		return result
 	}
 
