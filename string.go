@@ -2,6 +2,8 @@ package gohelpers
 
 import (
 	"strings"
+	"regexp"
+	"strconv"
 )
 
 type String struct {}
@@ -10,6 +12,7 @@ type String struct {}
  * Convert kebab-case into CamelCase
  */
 func (this *String) KebabToCamelCase(kebab string) (camelCase string) {
+
 	isToUpper := true
 	for _, runeValue := range kebab {
 		if isToUpper {
@@ -23,5 +26,27 @@ func (this *String) KebabToCamelCase(kebab string) (camelCase string) {
 			}
 		}
 	}
+	return
+}
+
+/**
+ * Extract integer from string
+ */
+func (this *String) ExtractIntFromString(s string) (result int) {
+	
+	result = this.ExtractNumberFromString(s)
+
+	if i, err := strconv.Atoi(result); err == nil {
+		return result
+	}
+}
+
+func (this *String) ExtractNumberFromString(s string) (result string) {
+
+	re := regexp.MustCompile("[0-9]+")
+	array := re.FindAllString(s, -1)
+
+	result = strings.Join(array, "")
+
 	return
 }
