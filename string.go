@@ -1,17 +1,17 @@
 package gohelpers
 
 import (
-	"strings"
 	"regexp"
 	"strconv"
+	"strings"
 )
 
-type String struct {}
+type String struct{}
 
 /**
  * Convert kebab-case into CamelCase
  */
-func KebabToCamelCase(kebab string) (camelCase string) {
+func (this *String) KebabToCamelCase(kebab string) (camelCase string) {
 
 	isToUpper := true
 	for _, runeValue := range kebab {
@@ -32,8 +32,8 @@ func KebabToCamelCase(kebab string) (camelCase string) {
 /**
  * Extract integer from string
  */
-func ExtractIntFromString(s string) (result int) {
-	
+func (this *String) ExtractIntFromString(s string) (result int) {
+
 	resultString := ExtractNumberFromString(s)
 
 	if result, err := strconv.Atoi(resultString); err == nil {
@@ -42,10 +42,10 @@ func ExtractIntFromString(s string) (result int) {
 
 	result = 0
 
-	return 
+	return
 }
 
-func ExtractNumberFromString(s string) (result string) {
+func (this *String) ExtractNumberFromString(s string) (result string) {
 
 	re := regexp.MustCompile("[0-9]+")
 	array := re.FindAllString(s, -1)
